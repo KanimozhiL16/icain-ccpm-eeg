@@ -1,0 +1,9 @@
+method,mean_EER,sd_EER,n
+CCPM,15.48,1.09,10
+S-norm,16.46,0.83,10
+Z-norm,16.41,1.12,10
+T-norm,16.77,0.79,10
+cosine,17.19,1.17,10
+SVM(per-user),16.87,1.25,10
+LDA(per-user),18.96,1.4,10
+Mahalanobis,22.37,1.33,10

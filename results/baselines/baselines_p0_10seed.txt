@@ -1,0 +1,33 @@
+10 seed checkpoints found
+seed1: cosine=17.09 CCPM=15.47 T-norm=16.33 Z-norm=16.05 S-norm=15.91 Mahalanobis=22.29 LDA(per-user)=20.01 SVM(per-user)=15.36
+seed2: cosine=17.40 CCPM=16.12 T-norm=17.10 Z-norm=16.54 S-norm=16.85 Mahalanobis=24.39 LDA(per-user)=19.49 SVM(per-user)=17.99
+seed3: cosine=17.03 CCPM=16.26 T-norm=16.28 Z-norm=16.92 S-norm=16.31 Mahalanobis=22.72 LDA(per-user)=19.83 SVM(per-user)=16.78
+seed4: cosine=18.44 CCPM=16.28 T-norm=18.27 Z-norm=17.58 S-norm=17.98 Mahalanobis=22.50 LDA(per-user)=19.47 SVM(per-user)=19.36
+seed5: cosine=17.17 CCPM=15.97 T-norm=17.00 Z-norm=17.22 S-norm=16.94 Mahalanobis=21.66 LDA(per-user)=18.96 SVM(per-user)=16.76
+seed6: cosine=17.11 CCPM=15.05 T-norm=17.40 Z-norm=16.15 S-norm=16.72 Mahalanobis=23.25 LDA(per-user)=20.64 SVM(per-user)=17.59
+seed7: cosine=14.75 CCPM=12.84 T-norm=15.40 Z-norm=14.04 S-norm=14.93 Mahalanobis=20.18 LDA(per-user)=15.67 SVM(per-user)=15.25
+seed8: cosine=16.45 CCPM=15.11 T-norm=16.04 Z-norm=15.52 S-norm=15.66 Mahalanobis=21.12 LDA(per-user)=18.82 SVM(per-user)=15.76
+seed9: cosine=19.25 CCPM=16.62 T-norm=16.99 Z-norm=17.92 S-norm=16.81 Mahalanobis=24.18 LDA(per-user)=19.00 SVM(per-user)=17.02
+seed10: cosine=17.18 CCPM=15.03 T-norm=16.85 Z-norm=16.15 S-norm=16.45 Mahalanobis=21.40 LDA(per-user)=17.68 SVM(per-user)=16.81
+
+method           mean+/-SD (n=10)
+CCPM             15.48 +/- 1.09
+S-norm           16.46 +/- 0.83
+Z-norm           16.41 +/- 1.12
+T-norm           16.77 +/- 0.79
+cosine           17.19 +/- 1.17
+SVM(per-user)    16.87 +/- 1.25
+LDA(per-user)    18.96 +/- 1.40
+Mahalanobis      22.37 +/- 1.33
+
+LaTeX rows (Table 1, P0 scoring-rule benchmark):
+CCPM & 15.48 $\pm$ 1.09 \\
+S-norm & 16.46 $\pm$ 0.83 \\
+Z-norm & 16.41 $\pm$ 1.12 \\
+T-norm & 16.77 $\pm$ 0.79 \\
+cosine & 17.19 $\pm$ 1.17 \\
+SVM(per-user) & 16.87 $\pm$ 1.25 \\
+LDA(per-user) & 18.96 $\pm$ 1.40 \\
+Mahalanobis & 22.37 $\pm$ 1.33 \\
+
+[saved] artifacts/baselines/baselines_p0_10seed.csv

@@ -1,0 +1,28 @@
+experiments:
+  - name: softmax_mean_single
+    loss.classifier: softmax
+    loss.supcon_weight: 0.0
+    verification.prototype: mean
+  - name: arcface_kmeans
+    loss.classifier: arcface
+    loss.supcon_weight: 0.0
+    verification.prototype: kmeans
+  - name: arcface_supcon_kmeans
+    loss.classifier: arcface
+    loss.supcon_weight: 0.25
+    verification.prototype: kmeans
+  - name: subcenter_arcface
+    loss.classifier: subcenter_arcface
+    loss.supcon_weight: 0.25
+    verification.prototype: subcenter
+  - name: adaface_quality
+    loss.classifier: adaface
+    loss.supcon_weight: 0.25
+    verification.quality_rejection: true
+  - name: fedavg_quality
+    federated.enabled: true
+    federated.method: fedavg
+  - name: fedprox_quality
+    federated.enabled: true
+    federated.method: fedprox
+

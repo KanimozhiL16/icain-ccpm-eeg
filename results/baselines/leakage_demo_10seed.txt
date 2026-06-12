@@ -1,0 +1,19 @@
+10 checkpoints
+seed1: honest=15.30%  leaky(mixed)=0.30%
+seed2: honest=15.95%  leaky(mixed)=0.44%
+seed3: honest=16.15%  leaky(mixed)=0.30%
+seed4: honest=16.43%  leaky(mixed)=0.34%
+seed5: honest=16.25%  leaky(mixed)=0.34%
+seed6: honest=14.28%  leaky(mixed)=0.40%
+seed7: honest=12.81%  leaky(mixed)=0.26%
+seed8: honest=14.48%  leaky(mixed)=0.32%
+seed9: honest=16.10%  leaky(mixed)=0.39%
+seed10: honest=14.76%  leaky(mixed)=0.36%
+
+HONEST (held-out r03)      : 15.25% ± 1.16  (n=10)
+LEAKY  (sessions mixed)    : 0.35% ± 0.05
+>>> leakage inflation = 14.9 points
+[saved] artifacts/baselines/leakage_demo_10seed.csv
+
+PAPER SENTENCE: 'On identical data and encoder, a session-mixed split yields 0.3±0.1% EER,
+ versus 15.3±1.2% under our held-out-session protocol (10 seeds) — a 15-point inflation from session leakage.'

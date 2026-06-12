@@ -1,0 +1,4 @@
+inspection/*.xlsx
+*.npz
+__pycache__/
+*.pyc

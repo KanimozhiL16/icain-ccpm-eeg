@@ -1,0 +1,127 @@
+experiment:
+  name: fed_real_bed_p2_all_balanced_brev_softmax_mean_single
+  seed: 2026
+  device: auto
+  deterministic: false
+paths:
+  bed_raw_root: /home/nvidia/24PHD1237/BED/FED_REAL_BED/DATASET/BED/RAW_PARSED
+  manifest_csv: null
+  cache_root: artifacts/cache
+  results_root: artifacts/results
+data:
+  input_sampling_rate: 256
+  target_sampling_rate: 128
+  channels:
+  - AF3
+  - F7
+  - F3
+  - FC5
+  - T7
+  - P7
+  - O1
+  - O2
+  - P8
+  - T8
+  - FC6
+  - F4
+  - F8
+  - AF4
+  stimulus: ALL
+  stimulus_group: all
+  window_sec: 2.0
+  step_sec: 2.0
+  max_windows_per_subject_session_stimulus: 80
+  bandpass_hz:
+  - 1.0
+  - 45.0
+  notch_hz: 50.0
+  zscore: channel
+  quality:
+    max_abs_uv: 150.0
+    min_std_uv: 0.05
+    max_std_uv: 80.0
+    flatline_std_uv: 0.01
+    max_bad_channel_frac: 0.25
+    min_quality: 0.35
+protocol:
+  name: P2
+  enroll_sessions:
+  - r01
+  - session1
+  - s1
+  - 1
+  validation_sessions:
+  - r02
+  - session2
+  - s2
+  - 2
+  test_sessions:
+  - r03
+  - session3
+  - s3
+  - 3
+  train_sessions:
+  - r01
+  - session1
+  - s1
+  - 1
+  threshold_source: validation
+model:
+  encoder: cnn_tcn
+  emb_dim: 128
+  num_subjects: 21
+  dropout: 0.2
+  width: 96
+  tcn_blocks: 4
+  transformer_layers: 2
+  transformer_heads: 4
+loss:
+  classifier: softmax
+  arcface_margin: 0.35
+  arcface_scale: 30.0
+  subcenters: 3
+  supcon_weight: 0.0
+  supcon_temperature: 0.07
+  quality_margin_weight: 0.2
+train:
+  epochs: 80
+  selection_metric: val_eer
+  batch_size: 512
+  lr: 0.0003
+  weight_decay: 0.0001
+  patience: 15
+  num_workers: 0
+  amp: true
+  grad_clip: 5.0
+verification:
+  prototype: mean
+  kmeans_k: 3
+  score_norm: adaptive_snorm
+  cohort_size: 100
+  fusion:
+    methods:
+    - single
+    - mean_5
+    - mean_10
+    - majority_5
+    - majority_10
+  quality_rejection: true
+  target_far:
+  - 0.01
+  - 0.05
+  - 0.1
+adaptation:
+  methods:
+  - none
+  - bn_recalibration
+  - prototype_ema
+  ema_alpha: 0.05
+federated:
+  enabled: false
+  method: fedavg
+  clients: subject
+  rounds: 20
+  local_epochs: 2
+  client_fraction: 1.0
+  fedprox_mu: 0.01
+  personalize: true

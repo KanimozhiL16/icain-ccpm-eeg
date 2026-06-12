@@ -1,0 +1,93 @@
+experiment:
+  name: m10_ccpm_seed10
+  seed: 10
+  device: auto
+  deterministic: false
+
+paths:
+  bed_raw_root: /home/nvidia/24PHD1237/BED/FED_REAL_BED/DATASET/BED/RAW_PARSED
+  manifest_csv:
+  cache_root: artifacts/cache
+  results_root: artifacts/results
+
+data:
+  input_sampling_rate: 256
+  target_sampling_rate: 128
+  channels: [AF3, F7, F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, AF4]
+  stimulus: ALL
+  stimulus_group: all
+  window_sec: 2.0
+  step_sec: 2.0
+  max_windows_per_subject_session_stimulus: 80
+  bandpass_hz: [1.0, 45.0]
+  notch_hz: 50.0
+  zscore: channel
+  quality:
+    max_abs_uv: 150.0
+    min_std_uv: 0.05
+    max_std_uv: 80.0
+    flatline_std_uv: 0.01
+    max_bad_channel_frac: 0.25
+    min_quality: 0.35
+
+protocol:
+  name: P0
+  enroll_sessions: [r01, r02]
+  validation_sessions: [r02]
+  test_sessions: [r03]
+  threshold_source: random_train_session_validation
+
+model:
+  encoder: ecapa
+  emb_dim: 128
+  num_subjects: 21
+  dropout: 0.20
+  width: 160
+  tcn_blocks: 4
+  transformer_layers: 2
+  transformer_heads: 4
+
+loss:
+  classifier: adaface
+  arcface_margin: 0.35
+  arcface_scale: 30.0
+  subcenters: 3
+  supcon_weight: 0.25
+  supcon_temperature: 0.07
+  quality_margin_weight: 0.20
+
+train:
+  epochs: 80
+  selection_metric: val_eer
+  batch_size: 512
+  lr: 0.0003
+  weight_decay: 0.0001
+  patience: 15
+  num_workers: 0
+  amp: true
+  grad_clip: 5.0
+
+verification:
+  prototype: kmeans
+  kmeans_k: 3
+  score_norm: ccpm
+  cohort_size: 100
+  condition_on: stimulus
+  fusion:
+    methods: [single, mean_5, mean_10, majority_5, majority_10]
+  quality_rejection: true
+  target_far: [0.01, 0.05, 0.10]
+
+adaptation:
+  methods: [none]
+  ema_alpha: 0.05
+
+federated:
+  enabled: false
+  method: fedavg
+  clients: subject
+  rounds: 20
+  local_epochs: 2
+  client_fraction: 1.0
+  fedprox_mu: 0.01
+  personalize: false

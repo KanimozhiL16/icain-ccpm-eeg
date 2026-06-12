@@ -1,0 +1,21 @@
+checkpoint: artifacts/results/ccpm_run1/checkpoints/best.pt
+
+method            EER%(mean_5)
+cosine             16.42
+CCPM               14.20
+T-norm             15.91
+Z-norm             15.28
+S-norm             15.60
+Mahalanobis        22.58
+LDA(per-user)      18.86
+SVM(per-user)      16.13
+
+LaTeX rows:
+CCPM & 14.20 \\
+Z-norm & 15.28 \\
+S-norm & 15.60 \\
+T-norm & 15.91 \\
+SVM(per-user) & 16.13 \\
+cosine & 16.42 \\
+LDA(per-user) & 18.86 \\
+Mahalanobis & 22.58 \\

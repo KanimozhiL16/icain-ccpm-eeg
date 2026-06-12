@@ -1,0 +1,12 @@
+checkpoint: artifacts/results/ccpm_run1/checkpoints/best.pt
+
+(1) HONEST       enrol r01+r02 -> held-out r03 : EER = 14.01%
+      genuine  mean=+0.005 sd=0.259 | impostor mean=-0.522 sd=0.199
+
+(2) LEAKY-BLOCK  sessions mixed, block split  : EER = 0.33% ± 0.04  (5 seeds)
+(3) LEAKY-WINDOW random per-window split       : EER = 0.00%  (degenerate: near-duplicate windows)
+
+>>> CREDIBLE leakage inflation = 13.7 points (block-leaky 0.3% vs honest 14.0%).
+PAPER SENTENCE (use the BLOCK number, not the window one):
+  'On identical data and encoder, a session-mixed split reports 0.3% EER,
+   versus 14.0% under our held-out-session protocol, quantifying leakage inflation.'
