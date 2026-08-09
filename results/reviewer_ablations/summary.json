@@ -1,0 +1,9 @@
+{
+  "headline_eer_percent": 14.46,
+  "auc": 0.933,
+  "ci95": [
+    14.21,
+    14.72
+  ],
+  "fusion": "mean_5"
+}

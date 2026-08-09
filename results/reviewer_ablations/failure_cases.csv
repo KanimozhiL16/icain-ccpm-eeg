@@ -1,0 +1,4 @@
+subject,eer_percent,auc,note
+15,25.08,0.839,worst / failure cases
+1,26.98,0.798,worst / failure cases
+2,54.93,0.438,worst / failure cases
