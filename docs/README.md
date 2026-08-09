@@ -113,3 +113,25 @@ Program** (awarded to S. Shridevi).
 ## License
 Code: MIT (suggested). Paper/figures: CC BY 4.0 (suggested). BED dataset is governed
 by its original license.
+## Reviewer-response experiments (ICAIN camera-ready revision)
+
+These scripts reproduce the analyses added during the ICAIN revision. Headline
+results are unchanged: **P0 ECAPA+CCPM 16.09 ± 1.10% EER** (significantly below
+plain cosine 17.38%, paired test p<0.01), **P2 26.52 ± 1.26% EER**.
+
+- `scripts/reviewer_ablations.py` — eval-stage analyses on the trained P0 checkpoint:
+  prototype-count sweep (k ∈ {1,2,3,5}; k=3 best, <0.35-point spread), quality-weighted
+  vs plain fusion, per-subject EER, and genuine/impostor score distributions.
+  Produces `figures/fig_subject_eer.png` (per-subject EER; subject S2 is a failure case
+  at ~54.9%).
+- `scripts/cueless_prep.py`, `scripts/cueless_stage2_setup.py` — leakage-free
+  cross-dataset generalization test on the Cueless imagined-speech EEG corpus
+  (Derakhshesh et al., IEEE T-BIOM 2025). CCPM transfers as a verifier (~21% EER);
+  its margin over cosine is dataset-dependent.
+- `scripts/aep_prep.py`, `scripts/aep_setup.py` — attempt on the PhysioNet
+  Auditory-EEG dataset; excluded because its "sessions" are same-sitting segments
+  with no genuine session separation.
+
+All numbers are verified outputs of this pipeline; no results are fabricated. A
+controlled multi-dataset cross-day study is planned as future work.
+
