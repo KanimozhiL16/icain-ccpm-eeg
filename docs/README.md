@@ -80,8 +80,7 @@ Zenodo (below); place the cache under `artifacts/cache/` before re-running.
   Data record: Zenodo DOI `10.5281/zenodo.4309472` — https://doi.org/10.5281/zenodo.4309472
   (all versions: `10.5281/zenodo.4309471`). BED is governed by its original license; this
   repository does **not** redistribute BED.
-- **This work's preprocessed cache + checkpoints + full `roc.csv`:** Zenodo DOI
-  **`10.5281/zenodo.XXXXXXX`** *(replace after you upload `icain_heavy_for_zenodo.tar.gz`)*.
+- **This work's preprocessed cache + checkpoints + full `roc.csv`:** archived on Zenodo **upon publication**; code and metrics are available in this repository.*
 
 ## Citation
 ```bibtex
